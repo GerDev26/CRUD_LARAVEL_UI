@@ -3,6 +3,7 @@ import { ProductCard } from './components/ProductCard/ProductCard'
 import {useSearchProducts } from './hooks/useProducts'
 import { TopBar } from './components/topBar/topBar'
 import { useRef } from 'react';
+import { DeleteModal } from './components/DeleteModal/DeleteModal';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <>
+      <DeleteModal></DeleteModal>
       <TopBar onSearchChange={handleSearchChange} onCategoryChange={handleCategoryChange}/>
 
       <main className='product-container'>

@@ -44,11 +44,6 @@
     display: flex;
     gap: 3px;
 }
-.product-item-logo{
-    width: 18px;
-    height: auto;
-    color: #6d0000;
-}
 .product-footer{
     display: flex;
     gap: 5px;

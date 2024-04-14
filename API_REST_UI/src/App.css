@@ -22,3 +22,13 @@ body{
 .hidden{
   display: none;
 }
+.small-icon{
+  width: 18px;
+  height: auto;
+  fill: #ff0000;
+}
+.big-icon{
+  width: 90px;
+  height: auto;
+  color: #6d0000;
+}
