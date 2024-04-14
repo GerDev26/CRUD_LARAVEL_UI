@@ -1,36 +1,16 @@
-import { useEffect, useState } from 'react'
 import './ProductCard.css'
-import { API_PRODUCT_ENDPOINT } from '../../services/myApi'
-export function ProductCard({product}){
+export function ProductCard({product, openDestroy}){
 
-    let [destroy, setDestroy] = useState(false)
-    
-    const isDelete = destroy ? "hidden" : "product-card"
-
-    let handleClickDelete = () => {
-        console.log(destroy)
-        console.log(product.id)
-        setDestroy(true)
-        
-        fetch(API_PRODUCT_ENDPOINT + product.id, {
-            method: 'DELETE',
-        })
-         .then(res => res.json())
-         .then(data => {
-            console.log(data)
-         })
-    }
-
-    let handleClickUpdate = () =>{
-
+    const openDeleteModal = () => {
+        openDestroy(product.id)
     }
 
     return(
-        <article className={isDelete}>
+        <article className="product-card">
             <button className='product-btn product-update-btn'>
-                <img onClick={handleClickUpdate} className='small-icon' src="../../../icons/pencilSquare.svg" alt="" />
+                <img className='small-icon' src="../../../icons/pencilSquare.svg" alt="" />
             </button>
-            <button onClick={handleClickDelete} className='product-btn product-delete-btn'>
+            <button onClick={openDeleteModal} className='product-btn product-delete-btn'>
                 <img className='small-icon' src="../../../icons/deleteTrash.svg" alt="" />
             </button>
             <div className='product-data'>

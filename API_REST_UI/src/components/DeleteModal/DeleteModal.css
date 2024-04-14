@@ -1,8 +1,8 @@
 .delete-modal{
-    width: 30vw;
-    height: 60vh;
+    width: 300px;
+    height: 400px;
     background-color: white;
-    position: absolute;
+    position: fixed;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: space-around;
     padding: 20px;
+    transition: all 200ms ease-in-out;
 }
 .delete-modal-data{
     text-align: center;
@@ -40,4 +41,9 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+.close{
+    opacity: 0;
+    top: calc(50% + 5%);
+    z-index: -10;
 }

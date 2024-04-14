@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_PRODUCT_ALL_ENDPOINT, API_PRODUCT_SEARCH_ENDPOINT } from "../services/myApi";
+import { API_PRODUCT_ALL_ENDPOINT, API_PRODUCT_ENDPOINT, API_PRODUCT_SEARCH_ENDPOINT } from "../services/myApi";
 
 function formatProducts(request){
     if(request){
@@ -18,7 +18,6 @@ function formatProducts(request){
         return products
     }
 }
-
 export function useAllProducts() {
 
     let [request, setRequest] = useState(null)
@@ -64,4 +63,25 @@ export function useSearchProducts(initialSearch = "") {
     }
 
     return [request, searchProduct, changeCategory]
+}
+
+export function deleteProductAndReload(id){
+
+        fetch(API_PRODUCT_ENDPOINT + id, {
+            method: 'DELETE',
+        })
+         .then(res => res.json())
+         .then(data => {
+            console.log(data)
+            window.location.reload()
+         })
+         .catch(error => {
+            console.log(error)
+            window.location.reload()
+         })
+
+}
+
+export function updateProduct(request, id){
+
 }
